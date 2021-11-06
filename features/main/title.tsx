@@ -1,27 +1,27 @@
 import React from 'react';
 import {StyleSheet, Text, View} from 'react-native';
 import colors from '../../constants/colors';
-import StyledText from '../general/text';
+import SText from '../general/text';
 
 const Title = () => (
-  <View>
-    <StyledText>Don’t forget about</StyledText>
-    <StyledText>
-      your daily &nbsp;
-      <Text
-        style={{
-          ...styles.main,
-          ...styles.highlited,
-        }}>
-        goals
-      </Text>
-    </StyledText>
+  <View style={styles.container}>
+    <SText style={styles.small}>Don’t forget about</SText>
+    <SText style={styles.big}>
+      your daily&nbsp;
+      <Text style={styles.highlited}>goals</Text>
+    </SText>
   </View>
 );
 
 const styles = StyleSheet.create({
-  main: {
-    color: colors.text,
+  container: {
+    marginBottom: 29,
+  },
+  small: {
+    fontSize: 22,
+  },
+  big: {
+    fontSize: 25,
   },
   highlited: {
     color: colors.titleAccent,
