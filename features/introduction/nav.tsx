@@ -18,19 +18,22 @@ const renderBalls = (
   setIndex: SetSlideIndex,
 ) =>
   new Array(count).fill(null).map((_el, index) => (
-    <Pressable
-      key={`cirlce-${index}`}
-      onPress={() => setIndex(index)}
+    <View
       style={Object.assign(
         {},
-        styles.button,
+        styles.container,
         index === count - 1 ? {} : styles.margin,
         index === focusedIndex ? styles.opacity : {},
       )}>
-      <Gradient>
-        {index === focusedIndex && <View style={styles.circle} />}
+      <Gradient style={styles.borderRadius}>
+        <Pressable
+          key={`cirlce-${index}`}
+          onPress={() => setIndex(index)}
+          style={styles.button}>
+          {index === focusedIndex && <View style={styles.circle} />}
+        </Pressable>
       </Gradient>
-    </Pressable>
+    </View>
   ));
 
 const Nav: FC<Props> = ({
@@ -65,14 +68,18 @@ const styles = StyleSheet.create({
   circles: {
     flexDirection: 'row',
   },
+  container: {
+    overflow: 'hidden',
+    opacity: 0.5,
+  },
   button: {
     width: 20,
     height: 20,
-    backgroundColor: 'red',
-    borderRadius: 10,
     justifyContent: 'center',
     alignItems: 'center',
-    opacity: 0.5,
+  },
+  borderRadius: {
+    borderRadius: 10,
   },
   circle: {
     width: 6,
