@@ -24,12 +24,10 @@ const renderBalls = (
         styles.container,
         index === count - 1 ? {} : styles.margin,
         index === focusedIndex ? styles.opacity : {},
-      )}>
+      )}
+      key={`cirlce-${index}`}>
       <Gradient style={styles.borderRadius}>
-        <Pressable
-          key={`cirlce-${index}`}
-          onPress={() => setIndex(index)}
-          style={styles.button}>
+        <Pressable onPress={() => setIndex(index)} style={styles.button}>
           {index === focusedIndex && <View style={styles.circle} />}
         </Pressable>
       </Gradient>
