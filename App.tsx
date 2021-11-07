@@ -1,16 +1,22 @@
-import React, {useState} from 'react';
+import React from 'react';
 import {StyleSheet, View} from 'react-native';
+import {Provider, useSelector} from 'react-redux';
 import colors from './constants/colors';
-import Introduction from './features/introduction/introduction';
+import Slide from './features/introduction/slide';
 import Main from './features/main/main';
+import {RootState, store} from './store';
+
+const ReduxWrapper = () => (
+  <Provider store={store}>
+    <App />
+  </Provider>
+);
 
 const App = () => {
-  const [isIntroShown, setIsIntroShown] = useState(true); // TODO: remove the hardcoded value
+  const isIntroShown = useSelector((state: RootState) => state.intro.isShown);
 
   return (
-    <View style={styles.global}>
-      {isIntroShown ? <Introduction /> : <Main />}
-    </View>
+    <View style={styles.global}>{isIntroShown ? <Slide /> : <Main />}</View>
   );
 };
 
@@ -21,4 +27,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default App;
+export default ReduxWrapper;

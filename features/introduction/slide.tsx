@@ -1,19 +1,20 @@
 import React, {FC} from 'react';
 import {StyleSheet, View} from 'react-native';
+import {useSelector} from 'react-redux';
+import {RootState} from '../../store';
 import SText from '../general/text';
-import Nav, {SlideIndex} from './nav';
+import Nav from './nav';
+import slides from './slides-data';
 
 export interface SlideData {
   title: JSX.Element;
   description: string;
 }
 
-interface Props extends SlideData {
-  slideIndex: SlideIndex;
-  setSlideIndex: React.Dispatch<React.SetStateAction<number>>;
-}
+const Slide: FC = () => {
+  const activeIndex = useSelector((store: RootState) => store.intro.slideIndex);
+  const {title, description} = slides[activeIndex];
 
-const Slide: FC<Props> = ({setSlideIndex, slideIndex, title, description}) => {
   return (
     <View style={styles.slide}>
       <View style={styles.text}>
@@ -21,7 +22,7 @@ const Slide: FC<Props> = ({setSlideIndex, slideIndex, title, description}) => {
         <SText style={styles.description}>{description}</SText>
       </View>
 
-      <Nav slideIndex={slideIndex} setSlideIndex={setSlideIndex} />
+      <Nav />
     </View>
   );
 };

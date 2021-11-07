@@ -1,16 +1,14 @@
 import React, {FC} from 'react';
 import {Pressable, StyleSheet, View} from 'react-native';
+import {useDispatch, useSelector} from 'react-redux';
 import colors from '../../constants/colors';
+import {RootState} from '../../store';
 import Gradient from '../general/gradient';
 import SText from '../general/text';
+import {hideIntroduction, setSlideIndex, showNextSlide} from './introSlice';
 
 export type SlideIndex = number;
-type SetSlideIndex = React.Dispatch<React.SetStateAction<number>>;
-
-interface Props {
-  slideIndex: SlideIndex;
-  setSlideIndex: SetSlideIndex;
-}
+type SetSlideIndex = (index: number) => void;
 
 const renderBalls = (
   count: number,
@@ -34,21 +32,23 @@ const renderBalls = (
     </View>
   ));
 
-const Nav: FC<Props> = ({
-  slideIndex: currentIndex,
-  setSlideIndex: setIndex,
-}) => {
+const Nav: FC = () => {
+  const activeIndex = useSelector((store: RootState) => store.intro.slideIndex);
+  const dispatch = useDispatch();
+
   return (
     <View style={styles.nav}>
-      <Pressable>
+      <Pressable onPress={() => dispatch(hideIntroduction())}>
         <SText style={styles.pressable}>Skip</SText>
       </Pressable>
 
       <View style={styles.circles}>
-        {renderBalls(3, currentIndex, setIndex)}
+        {renderBalls(3, activeIndex, (index: number) =>
+          dispatch(setSlideIndex(index)),
+        )}
       </View>
 
-      <Pressable onPress={() => setIndex(currentIndex + 1)}>
+      <Pressable onPress={() => dispatch(showNextSlide())}>
         <SText style={styles.pressable}>&gt;&gt;</SText>
       </Pressable>
     </View>
