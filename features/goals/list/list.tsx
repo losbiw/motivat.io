@@ -12,7 +12,7 @@ const GoalsList: FC = () => {
   return (
     <View>
       {goals.map(goal => (
-        <SText>{goal}</SText>
+        <SText key={goal}>{goal}</SText>
       ))}
     </View>
   );
