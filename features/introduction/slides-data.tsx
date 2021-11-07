@@ -1,5 +1,6 @@
 import React, {FC} from 'react';
 import {StyleSheet, View} from 'react-native';
+import GradientText from '../general/gradient-text';
 import SText from '../general/text';
 import {SlideData} from './slide';
 
@@ -24,7 +25,7 @@ const slides: SlideData[] = [
     title: (
       <Title>
         <TitleText>What is&nbsp;</TitleText>
-        <TitleText>Motivat.io?</TitleText>
+        <GradientText style={styles.title}>Motivat.io?</GradientText>
       </Title>
     ),
     description:
