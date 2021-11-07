@@ -35,7 +35,7 @@ const slides: SlideData[] = [
     title: (
       <Title>
         <TitleText>How would I use&nbsp;</TitleText>
-        <TitleText>Motivat.io?</TitleText>
+        <GradientText style={styles.title}>Motivat.io?</GradientText>
       </Title>
     ),
     description:
@@ -44,7 +44,7 @@ const slides: SlideData[] = [
   {
     title: (
       <Title>
-        <TitleText>Motivat.io&nbsp;</TitleText>
+        <GradientText style={styles.title}>Motivat.io&nbsp;</GradientText>
         <TitleText>network</TitleText>
       </Title>
     ),
