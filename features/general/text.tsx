@@ -3,7 +3,7 @@ import {StyleSheet, Text, TextProps} from 'react-native';
 import colors from '../../constants/colors';
 
 const SText: FC<TextProps> = props => (
-  <Text {...props} style={Object.assign({}, styles.text, props.style)}>
+  <Text {...props} style={[styles.text, props.style]}>
     {props.children}
   </Text>
 );
