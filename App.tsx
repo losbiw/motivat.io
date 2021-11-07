@@ -2,7 +2,7 @@ import React from 'react';
 import {StyleSheet, View} from 'react-native';
 import {Provider, useSelector} from 'react-redux';
 import colors from './constants/colors';
-import Slide from './features/introduction/slide';
+import Introduction from './features/introduction/introduction';
 import Main from './features/main/main';
 import {RootState, store} from './store';
 
@@ -16,7 +16,9 @@ const App = () => {
   const isIntroShown = useSelector((state: RootState) => state.intro.isShown);
 
   return (
-    <View style={styles.global}>{isIntroShown ? <Slide /> : <Main />}</View>
+    <View style={styles.global}>
+      {isIntroShown ? <Introduction /> : <Main />}
+    </View>
   );
 };
 
