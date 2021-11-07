@@ -13,7 +13,7 @@ const SearchBar: FC = () => {
 
 const styles = StyleSheet.create({
   background: {
-    paddingVertical: 15,
+    paddingVertical: 13,
     paddingHorizontal: 17,
     borderWidth: 1,
     borderColor: colors.border,
