@@ -1,5 +1,8 @@
 # Motivat.io
 
+[Intro screen](screenshots/intro.png)
+[Main screen](screenshots/main-screen.png)
+
 ## Goal
 The app is created for people who struggle with finding their motivation to achieve certain goals and/or keep forgetting about practicing new skills.
 
