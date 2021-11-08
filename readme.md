@@ -2,8 +2,9 @@
 
 The app is created for people who struggle with finding their motivation to achieve certain goals and/or keep forgetting about practicing new skills.
 
-<img src="https://raw.githubusercontent.com/losbiw/motivat.io/master/screenshots/intro.png" width=50%>
-<img src="https://raw.githubusercontent.com/losbiw/motivat.io/master/screenshots/main-screen.png" width=50%>
+Main Screen             |  Introduction
+:-------------------------:|:-------------------------:
+![](screenshots/main-screen.png)  |  ![](screenshots/intro.png)
 
 ## Tech Stack
 Main technologies used in the project:
