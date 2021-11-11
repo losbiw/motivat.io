@@ -1,13 +1,11 @@
-import React, {FC, useEffect, useState} from 'react';
+import React, {FC} from 'react';
 import {StyleSheet, View} from 'react-native';
+import {useSelector} from 'react-redux';
+import {RootState} from '../../store';
 import Goal from './goal';
 
 const GoalsList: FC = () => {
-  const [goals, setGoals] = useState<string[]>([]);
-
-  useEffect(() => {
-    setGoals(['cock', 'booba']);
-  }, []);
+  const goals = useSelector((state: RootState) => state.goals.list);
 
   return (
     <View style={styles.list}>
