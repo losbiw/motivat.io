@@ -7,8 +7,8 @@ interface State {
 }
 
 const initialState: State = {
-  isShown: true,
-  slideIndex: 0, // TODO: change the hardcoded value
+  isShown: false, // TODO: change the hardcoded value
+  slideIndex: 0,
 };
 
 const introSlice = createSlice({
