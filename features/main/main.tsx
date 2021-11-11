@@ -1,6 +1,6 @@
 import React from 'react';
 import {StyleSheet, View} from 'react-native';
-import GoalsList from '../goals/list/list';
+import GoalsList from '../goals/list';
 import SearchBar from '../goals/search/searchbar';
 import Title from './title';
 
