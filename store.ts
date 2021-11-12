@@ -1,6 +1,6 @@
 import {configureStore} from '@reduxjs/toolkit';
-import goalsSlice from './features/goals/goalsSlice';
-import introSlice from './features/introduction/introSlice';
+import goalsSlice from './features/goals/goals-slice';
+import introSlice from './features/introduction/intro-slice';
 
 export const store = configureStore({
   reducer: {

@@ -6,7 +6,7 @@ import {RootState} from '../../store';
 import Gradient from '../general/gradient';
 import SText from '../general/text';
 import WideButton from '../general/wide-button';
-import {hideIntroduction, setSlideIndex, showNextSlide} from './introSlice';
+import {hideIntroduction, setSlideIndex, showNextSlide} from './intro-slice';
 import slides from './slides-data';
 
 export type SlideIndex = number;

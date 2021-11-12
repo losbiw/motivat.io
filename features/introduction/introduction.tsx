@@ -3,7 +3,7 @@ import {Animated, Easing, StyleSheet, View} from 'react-native';
 import {useDispatch, useSelector} from 'react-redux';
 import {screenHeight, screenWidth} from '../../constants/dimensions';
 import {RootState} from '../../store';
-import {showNextSlide, showPrevSlide} from './introSlice';
+import {showNextSlide, showPrevSlide} from './intro-slice';
 import Nav from './nav';
 import Slide from './slide';
 import slides from './slides-data';
