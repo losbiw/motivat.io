@@ -5,7 +5,7 @@ import {RootState} from '../../store';
 import Goal from './goal';
 
 const GoalsList: FC = () => {
-  const goals = useSelector((state: RootState) => state.goals.list);
+  const goals = useSelector((state: RootState) => state.goals.titles);
 
   return (
     <View style={styles.list}>
