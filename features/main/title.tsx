@@ -5,8 +5,8 @@ import SText from '../general/text';
 
 const Title = () => (
   <View style={styles.container}>
-    <SText style={styles.small}>Don’t forget about</SText>
-    <SText style={styles.big}>
+    <SText style={[styles.small, styles.medium]}>Don’t forget about</SText>
+    <SText style={[styles.big, styles.medium]}>
       your daily&nbsp;
       <Text style={styles.highlited}>goals</Text>
     </SText>
@@ -14,6 +14,9 @@ const Title = () => (
 );
 
 const styles = StyleSheet.create({
+  medium: {
+    fontFamily: 'Poppins-Medium',
+  },
   container: {
     marginBottom: 29,
   },
