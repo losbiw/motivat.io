@@ -1,14 +1,19 @@
 import {createSlice, PayloadAction} from '@reduxjs/toolkit';
-import {Goal} from '../../types/goal';
+import {DisplayGoal, Goal} from '../../types/goal';
 
 interface State {
   fullList: Goal[];
-  titles: string[];
+  titles: DisplayGoal[];
 }
 
 const initialState: State = {
   fullList: [],
-  titles: ['hello', 'world'],
+  titles: [
+    {
+      title: 'Kas',
+      category: 'selfCare',
+    },
+  ],
 };
 
 const goals = createSlice({
@@ -16,8 +21,15 @@ const goals = createSlice({
   initialState,
   reducers: {
     addGoal: (state: State, action: PayloadAction<Goal>) => {
-      // state.fullList.push();
-      state.titles.push(action.payload.title);
+      const goal = action.payload;
+      const {title, category} = goal;
+
+      // state.fullList.push(goal);
+
+      state.titles.push({
+        title,
+        category,
+      });
     },
   },
 });
