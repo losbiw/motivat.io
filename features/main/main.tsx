@@ -1,7 +1,8 @@
 import React from 'react';
 import {StyleSheet, View} from 'react-native';
+import CreateButton from '../goals/create-button';
 import GoalsList from '../goals/list';
-import SearchBar from '../goals/search/searchbar';
+import SearchBar from '../goals/search/search-bar';
 import Title from './title';
 
 const Main = () => (
@@ -9,6 +10,7 @@ const Main = () => (
     <Title />
     <SearchBar />
     <GoalsList />
+    <CreateButton />
   </View>
 );
 
@@ -17,6 +19,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 33,
     paddingTop: 46,
     paddingBottom: 22,
+    flex: 1,
   },
 });
 
