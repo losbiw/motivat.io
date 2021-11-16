@@ -5,7 +5,7 @@ const light = {
   border: '#D3DDFF',
   placeholder: '#ACB7D2',
   accent1: '#FF6A57',
-  accent2: 'ED4589',
+  accent2: '#ED4589',
   titleAccent: '#F95749',
 };
 
