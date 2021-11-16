@@ -8,8 +8,10 @@ Main Screen             |  Introduction
 
 ## Tech Stack
 Main technologies used in the project:
+- Typescript
 - React Native
 - React Native CLI
+- Redux toolkit
 
 ## Local deployment 
 *yarn is author's package manager of choice, but npm works just fine too*
