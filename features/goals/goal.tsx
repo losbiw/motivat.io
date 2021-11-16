@@ -1,15 +1,18 @@
 import React, {FC} from 'react';
 import {StyleSheet, View} from 'react-native';
+import categories, {CategoryNames} from '../../constants/categories';
 import colors from '../../constants/colors';
 import SText from '../general/text';
+import Category from './category';
 
 interface Props {
-  category?: any; // TODO: change to category type later on
+  category: CategoryNames;
   title: string;
 }
 
 const Goal: FC<Props> = ({category, title}) => (
   <View style={styles.goal}>
+    <Category {...categories[category]} />
     <SText style={styles.title} key={title}>
       {title}
     </SText>
@@ -18,6 +21,8 @@ const Goal: FC<Props> = ({category, title}) => (
 
 const styles = StyleSheet.create({
   goal: {
+    flexDirection: 'row',
+    alignItems: 'center',
     padding: 8,
     backgroundColor: colors.secondary,
     borderRadius: 17,
@@ -28,6 +33,7 @@ const styles = StyleSheet.create({
   title: {
     color: colors.text,
     fontSize: 18,
+    marginLeft: 21,
   },
 });
 

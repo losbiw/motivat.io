@@ -1,3 +1,1 @@
-import {ColorValue} from 'react-native';
-
-export type Gradient = Array<ColorValue>;
+export type Gradient = string[];
