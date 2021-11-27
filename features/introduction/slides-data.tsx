@@ -30,6 +30,7 @@ const slides: SlideData[] = [
     ),
     description:
       'Motivat.io was created to help you achieve your goals with motivation and passion',
+    image: require('../../assets/intro/phone.png'),
   },
   {
     title: (
@@ -40,6 +41,7 @@ const slides: SlideData[] = [
     ),
     description:
       'Motivat.io is fully personalizable to your choice and allows you to set fully configurable notification messages at any time',
+    image: require('../../assets/intro/phone.png'),
   },
   {
     title: (
@@ -49,7 +51,10 @@ const slides: SlideData[] = [
       </Title>
     ),
     description: 'Share your accomplishments with the world and view theirs',
+    image: require('../../assets/intro/phone.png'),
   },
 ];
+
+console.log(require('../../assets/intro/phone.png'));
 
 export default slides;
