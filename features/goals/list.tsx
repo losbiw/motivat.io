@@ -10,7 +10,7 @@ const GoalsList: FC = () => {
   return (
     <ScrollView style={styles.list}>
       {goals.map(goal => (
-        <Goal {...goal} />
+        <Goal {...goal} key={goal.title} />
       ))}
     </ScrollView>
   );
@@ -18,7 +18,7 @@ const GoalsList: FC = () => {
 
 const styles = StyleSheet.create({
   list: {
-    marginTop: 22,
+    marginTop: 15,
   },
 });
 
