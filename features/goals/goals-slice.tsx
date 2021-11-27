@@ -10,7 +10,7 @@ const initialState: State = {
   fullList: [],
   titles: [
     {
-      title: 'Kas',
+      title: 'Do something like',
       category: 'selfCare',
     },
   ],
