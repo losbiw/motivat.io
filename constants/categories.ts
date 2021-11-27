@@ -8,14 +8,26 @@ export type CategoryNames =
   | 'science'
   | 'movies'
   | 'languages'
-  | 'it'
+  | 'computers'
   | 'music'
-  | 'creativity'
-  | 'selfCare';
+  | 'selfCare'
+  | 'business'
+  | 'math'
+  | 'books'
+  | 'art';
 
 const categories: Record<CategoryNames, Category> = {
   science: {
     gradient: ['ED4589', 'FF6A57'],
+  },
+  business: {
+    gradient: ['DA22FF', '9733EE'],
+  },
+  math: {
+    gradient: ['DA22FF', '9733EE'],
+  },
+  books: {
+    gradient: ['DA22FF', '9733EE'],
   },
   movies: {
     gradient: ['DA22FF', '9733EE'],
@@ -23,13 +35,13 @@ const categories: Record<CategoryNames, Category> = {
   languages: {
     gradient: ['4E54C8', '8F94FB'],
   },
-  it: {
+  computers: {
     gradient: ['AAFFA9', '43ECB9'],
   },
   music: {
     gradient: ['A9F5FF', '5AC4FF'],
   },
-  creativity: {
+  art: {
     gradient: ['F34665', 'EC6B43'],
   },
   selfCare: {
