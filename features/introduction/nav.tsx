@@ -92,6 +92,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
+    zIndex: 3,
   },
   wideButton: {
     marginHorizontal: 33,

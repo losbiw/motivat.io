@@ -62,12 +62,8 @@ const Introduction: FC = () => {
             translateX: xOffsetAnim,
           },
         ]}>
-        {slides.map(({title, description}, index) => (
-          <Slide
-            key={`slide-${index}`}
-            title={title}
-            description={description}
-          />
+        {slides.map((slide, index) => (
+          <Slide key={`slide-${index}`} {...slide} />
         ))}
       </Animated.View>
 
@@ -90,6 +86,7 @@ const styles = StyleSheet.create({
   swipeable: {
     backgroundColor: 'black',
     opacity: 0,
+    zIndex: 2,
     position: 'absolute',
     top: 0,
     bottom: 0,
