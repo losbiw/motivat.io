@@ -1,14 +1,22 @@
 import React, {FC} from 'react';
 import {Pressable, StyleSheet} from 'react-native';
-import {useDispatch} from 'react-redux';
+// import {useDispatch} from 'react-redux';
+import colors from '../../constants/colors';
 import Gradient from '../general/gradient';
+import Icon from '../general/icon';
 
 const CreateButton: FC = () => {
-  const dispatch = useDispatch();
+  // const dispatch = useDispatch();
 
   return (
     <Pressable style={styles.button}>
-      <Gradient style={styles.gradient} />
+      <Gradient style={styles.gradient}>
+        <Icon
+          style={styles.icon}
+          color={colors.background}
+          source={require('../../assets/icons/general/plus.png')}
+        />
+      </Gradient>
     </Pressable>
   );
 };
@@ -27,6 +35,10 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     padding: 13,
     borderRadius: 17,
+  },
+  icon: {
+    width: 28,
+    height: 28,
   },
 });
 

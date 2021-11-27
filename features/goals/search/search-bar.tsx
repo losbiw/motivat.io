@@ -10,7 +10,7 @@ const SearchBar: FC = () => {
       <Icon
         style={styles.image}
         color={colors.placeholder}
-        source={require('../../../assets/images/search/search.png')}
+        source={require('../../../assets/icons/search/search.png')}
       />
       <SText style={styles.placeholder}>Search goals</SText>
     </View>
