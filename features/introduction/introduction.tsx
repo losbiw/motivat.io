@@ -1,7 +1,7 @@
 import React, {FC, useEffect, useRef, useState} from 'react';
 import {Animated, Easing, StyleSheet, View} from 'react-native';
 import {useDispatch, useSelector} from 'react-redux';
-import {screenHeight, screenWidth} from '../../constants/dimensions';
+import {screenWidth} from '../../constants/dimensions';
 import {RootState} from '../../store';
 import {showNextSlide, showPrevSlide} from './intro-slice';
 import Nav from './nav';
@@ -74,11 +74,10 @@ const Introduction: FC = () => {
 
 const styles = StyleSheet.create({
   introduction: {
-    height: screenHeight,
-    width: screenWidth,
+    height: '100%',
     justifyContent: 'space-between',
     paddingTop: 54,
-    paddingBottom: 113,
+    paddingBottom: 115,
   },
   container: {
     flexDirection: 'row',

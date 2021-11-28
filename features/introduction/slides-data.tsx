@@ -1,5 +1,6 @@
 import React, {FC} from 'react';
 import {Image, StyleSheet, View} from 'react-native';
+import {screenHeight} from '../../constants/dimensions';
 import GradientText from '../general/gradient-text';
 import SText from '../general/text';
 import {SlideData} from './slide';
@@ -12,17 +13,16 @@ const styles = StyleSheet.create({
     fontSize: 22,
     marginBottom: 32,
   },
-  image: {
-    flex: 1,
-    resizeMode: 'contain',
-  },
   phone: {
-    width: 260,
+    height: screenHeight * 0.48,
+    aspectRatio: 0.65,
   },
   notifications: {
-    width: 200,
+    height: screenHeight * 0.48,
+    aspectRatio: 0.5,
   },
   chat: {
+    height: 160,
     width: 310,
   },
 });
@@ -46,7 +46,7 @@ const slides: SlideData[] = [
     Image: () => (
       <Image
         source={require('../../assets/intro/phone.png')}
-        style={[styles.image, styles.phone]}
+        style={styles.phone}
       />
     ),
   },
@@ -62,7 +62,7 @@ const slides: SlideData[] = [
     Image: () => (
       <Image
         source={require('../../assets/intro/notifications.png')}
-        style={[styles.image, styles.notifications]}
+        style={styles.notifications}
       />
     ),
   },
@@ -77,7 +77,7 @@ const slides: SlideData[] = [
     Image: () => (
       <Image
         source={require('../../assets/intro/chat.png')}
-        style={[styles.image, styles.chat]}
+        style={styles.chat}
       />
     ),
   },
