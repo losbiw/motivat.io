@@ -46,7 +46,7 @@ const Introduction: FC = () => {
           if (touchPos) {
             const {x: initialX} = touchPos;
 
-            if (locationX > initialX) {
+            if (locationX < initialX) {
               dispatch(showNextSlide());
             } else {
               dispatch(showPrevSlide());
