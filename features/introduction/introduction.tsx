@@ -1,6 +1,7 @@
 import React, {FC, useEffect, useRef, useState} from 'react';
 import {Animated, Easing, StyleSheet, View} from 'react-native';
 import {useDispatch, useSelector} from 'react-redux';
+import {animations} from '../../constants/animations';
 import {screenWidth} from '../../constants/dimensions';
 import {RootState} from '../../store';
 import {showNextSlide, showPrevSlide} from './intro-slice';
@@ -23,8 +24,8 @@ const Introduction: FC = () => {
   useEffect(() => {
     Animated.timing(xOffsetAnim, {
       toValue: Math.round(activeIndex * screenWidth) * -1,
-      duration: 550,
-      easing: Easing.bezier(0.42, 0.03, 0.55, 0.87),
+      duration: animations.slideDuration,
+      easing: Easing.bezier(0.79, 0.33, 0.14, 0.53),
       useNativeDriver: true,
     }).start();
   }, [activeIndex, xOffsetAnim]);
@@ -77,10 +78,11 @@ const styles = StyleSheet.create({
     height: '100%',
     justifyContent: 'space-between',
     paddingTop: 54,
-    paddingBottom: 115,
+    paddingBottom: 80,
   },
   container: {
     flexDirection: 'row',
+    flex: 1,
   },
   swipeable: {
     backgroundColor: 'black',
