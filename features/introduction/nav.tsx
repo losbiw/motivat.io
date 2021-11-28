@@ -143,13 +143,13 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
-    zIndex: 3,
     marginVertical: 17,
   },
   animated: {
     alignItems: 'flex-end',
     position: 'relative',
     flexDirection: 'row',
+    zIndex: 3,
     width: '200%',
   },
   wideButton: {
