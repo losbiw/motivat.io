@@ -1,7 +1,10 @@
 import React, {FC, useEffect, useRef} from 'react';
-import {Animated, Pressable, StyleSheet, View} from 'react-native';
+import {Animated, Easing, Pressable, StyleSheet, View} from 'react-native';
 import {useDispatch, useSelector} from 'react-redux';
+import {animations} from '../../constants/animations';
 import colors from '../../constants/colors';
+import {screenWidth} from '../../constants/dimensions';
+import usePrevious from '../../hooks/usePrevious';
 import {RootState} from '../../store';
 import Gradient from '../general/gradient';
 import SText from '../general/text';
@@ -38,31 +41,53 @@ const renderBalls = (
 
 const Nav: FC = () => {
   const activeIndex = useSelector((store: RootState) => store.intro.slideIndex);
+  const previousIndex = usePrevious(activeIndex);
+
   const fadeInAnim = useRef(new Animated.Value(initialOpacity)).current;
+  const offsetAnim = useRef(new Animated.Value(0)).current;
 
   const dispatch = useDispatch();
 
   useEffect(() => {
-    fadeInAnim.setValue(initialOpacity);
+    if (activeIndex !== slides.length - 1) {
+      fadeInAnim.setValue(initialOpacity);
 
-    Animated.timing(fadeInAnim, {
-      toValue: 1,
-      duration: 200,
-      useNativeDriver: true,
-    }).start();
+      Animated.timing(fadeInAnim, {
+        toValue: 1,
+        duration: 200,
+        useNativeDriver: true,
+      }).start();
+    }
   }, [activeIndex, fadeInAnim]);
 
-  if (activeIndex === slides.length - 1) {
-    return (
-      <WideButton
-        style={styles.wideButton}
-        onPress={() => dispatch(hideIntroduction())}
-        title="Get Started"
-      />
-    );
-  }
+  useEffect(() => {
+    if (
+      previousIndex === slides.length - 1 &&
+      activeIndex === slides.length - 2
+    ) {
+      Animated.timing(offsetAnim, {
+        toValue: 0,
+        duration: animations.slideDuration,
+        easing: Easing.bezier(0.79, 0.33, 0.14, 0.53),
+        useNativeDriver: true,
+      }).start();
+    }
+  }, [previousIndex, activeIndex, offsetAnim]);
 
-  return (
+  useEffect(() => {
+    if (activeIndex === slides.length - 1) {
+      offsetAnim.setValue(0);
+
+      Animated.timing(offsetAnim, {
+        toValue: screenWidth * -1,
+        duration: animations.slideDuration,
+        easing: Easing.bezier(0.79, 0.33, 0.14, 0.53),
+        useNativeDriver: true,
+      }).start();
+    }
+  }, [activeIndex, offsetAnim]);
+
+  const NavElement = (
     <View style={styles.nav}>
       <Pressable onPress={() => dispatch(hideIntroduction())}>
         <SText style={styles.pressable}>Skip</SText>
@@ -78,6 +103,17 @@ const Nav: FC = () => {
         <SText style={styles.pressable}>&gt;&gt;</SText>
       </Pressable>
     </View>
+  );
+
+  return (
+    <Animated.View style={[styles.animated, {translateX: offsetAnim}]}>
+      {NavElement}
+      <WideButton
+        style={styles.wideButton}
+        onPress={() => dispatch(hideIntroduction())}
+        title="Get Started"
+      />
+    </Animated.View>
   );
 };
 
@@ -103,14 +139,23 @@ const circles = StyleSheet.create({
 const styles = StyleSheet.create({
   nav: {
     paddingHorizontal: 63,
-    width: '100%',
+    width: screenWidth,
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
     zIndex: 3,
+    marginVertical: 17,
+  },
+  animated: {
+    alignItems: 'flex-end',
+    position: 'relative',
+    flexDirection: 'row',
+    width: '200%',
   },
   wideButton: {
+    left: 0,
     marginHorizontal: 33,
+    flex: 1,
   },
   row: {
     flexDirection: 'row',
