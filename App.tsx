@@ -1,5 +1,5 @@
 import React from 'react';
-import {StyleSheet, View} from 'react-native';
+import {StatusBar, StyleSheet, View} from 'react-native';
 import {Provider, useSelector} from 'react-redux';
 import colors from './constants/colors';
 import Introduction from './features/introduction/introduction';
@@ -17,6 +17,7 @@ const App = () => {
 
   return (
     <View style={styles.global}>
+      <StatusBar backgroundColor={colors.background} barStyle="dark-content" />
       {isIntroShown ? <Introduction /> : <Main />}
     </View>
   );
