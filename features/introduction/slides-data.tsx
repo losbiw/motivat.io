@@ -19,6 +19,9 @@ const styles = StyleSheet.create({
   phone: {
     width: 260,
   },
+  notifications: {
+    width: 200,
+  },
   chat: {
     width: 310,
   },
@@ -56,7 +59,12 @@ const slides: SlideData[] = [
     ),
     description:
       'Motivat.io allows you to set fully personalizable notifications to your choice',
-    Image: () => <Image source={require('../../assets/intro/phone.png')} />,
+    Image: () => (
+      <Image
+        source={require('../../assets/intro/notifications.png')}
+        style={[styles.image, styles.notifications]}
+      />
+    ),
   },
   {
     title: (
