@@ -29,6 +29,7 @@ const styles = StyleSheet.create({
   title: {
     color: colors.background,
     fontSize: 18,
+    fontFamily: 'Poppins-Medium',
   },
 });
 
