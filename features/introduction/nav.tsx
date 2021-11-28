@@ -2,7 +2,6 @@ import React, {FC, useEffect, useRef} from 'react';
 import {Animated, Pressable, StyleSheet, View} from 'react-native';
 import {useDispatch, useSelector} from 'react-redux';
 import colors from '../../constants/colors';
-import usePrevious from '../../hooks/usePrevious';
 import {RootState} from '../../store';
 import Gradient from '../general/gradient';
 import SText from '../general/text';
@@ -18,7 +17,6 @@ const initialOpacity = 0.5;
 const renderBalls = (
   count: number,
   focusedIndex: number,
-  prevIndex: undefined | number,
   fadeInOpacity: Animated.Value,
   setIndex: SetSlideIndex,
 ) =>
@@ -28,7 +26,6 @@ const renderBalls = (
         circles.container,
         index === count - 1 ? {} : styles.margin,
         index === focusedIndex ? {opacity: fadeInOpacity} : {},
-        // index === prevIndex ? {opacity: fadeOutOpacity} : {},
       ]}
       key={`cirlce-${index}`}>
       <Gradient style={styles.borderRadius}>
@@ -41,8 +38,6 @@ const renderBalls = (
 
 const Nav: FC = () => {
   const activeIndex = useSelector((store: RootState) => store.intro.slideIndex);
-  const previousIndex = usePrevious(activeIndex);
-
   const fadeInAnim = useRef(new Animated.Value(initialOpacity)).current;
 
   const dispatch = useDispatch();
@@ -57,15 +52,15 @@ const Nav: FC = () => {
     }).start();
   }, [activeIndex, fadeInAnim]);
 
-  // if (activeIndex === slides.length - 1) {
-  //   return (
-  //     <WideButton
-  //       style={styles.wideButton}
-  //       onPress={() => dispatch(hideIntroduction())}
-  //       title="Get Started"
-  //     />
-  //   );
-  // }
+  if (activeIndex === slides.length - 1) {
+    return (
+      <WideButton
+        style={styles.wideButton}
+        onPress={() => dispatch(hideIntroduction())}
+        title="Get Started"
+      />
+    );
+  }
 
   return (
     <View style={styles.nav}>
@@ -74,12 +69,8 @@ const Nav: FC = () => {
       </Pressable>
 
       <View style={styles.row}>
-        {renderBalls(
-          3,
-          activeIndex,
-          previousIndex,
-          fadeInAnim,
-          (index: number) => dispatch(setSlideIndex(index)),
+        {renderBalls(3, activeIndex, fadeInAnim, (index: number) =>
+          dispatch(setSlideIndex(index)),
         )}
       </View>
 
