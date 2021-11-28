@@ -1,21 +1,21 @@
 import React, {FC} from 'react';
-import {Image, ImageSourcePropType, StyleSheet, View} from 'react-native';
+import {StyleSheet, View} from 'react-native';
 import SText from '../general/text';
 
 export interface SlideData {
   title: JSX.Element;
   description: string;
-  image: ImageSourcePropType;
+  Image: () => JSX.Element;
 }
 
-const Slide: FC<SlideData> = ({title, description, image}) => {
+const Slide: FC<SlideData> = ({title, description, Image}) => {
   return (
     <View style={styles.slide}>
       <View style={styles.text}>
         <View>{title}</View>
         <SText style={styles.description}>{description}</SText>
 
-        <Image style={styles.image} source={image} />
+        <Image />
       </View>
     </View>
   );
@@ -33,11 +33,6 @@ const styles = StyleSheet.create({
   description: {
     textAlign: 'center',
     fontSize: 15,
-  },
-  image: {
-    flex: 1,
-    width: 260,
-    resizeMode: 'contain',
   },
 });
 

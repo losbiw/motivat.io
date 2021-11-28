@@ -1,5 +1,5 @@
 import React, {FC} from 'react';
-import {StyleSheet, View} from 'react-native';
+import {Image, StyleSheet, View} from 'react-native';
 import GradientText from '../general/gradient-text';
 import SText from '../general/text';
 import {SlideData} from './slide';
@@ -11,6 +11,16 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 22,
     marginBottom: 32,
+  },
+  image: {
+    flex: 1,
+    resizeMode: 'contain',
+  },
+  phone: {
+    width: 260,
+  },
+  chat: {
+    width: 310,
   },
 });
 
@@ -30,7 +40,12 @@ const slides: SlideData[] = [
     ),
     description:
       'Motivat.io was created to help you achieve your goals with motivation and passion',
-    image: require('../../assets/intro/phone.png'),
+    Image: () => (
+      <Image
+        source={require('../../assets/intro/phone.png')}
+        style={[styles.image, styles.phone]}
+      />
+    ),
   },
   {
     title: (
@@ -40,8 +55,8 @@ const slides: SlideData[] = [
       </Title>
     ),
     description:
-      'Motivat.io is fully personalizable to your choice and allows you to set fully configurable notification messages at any time',
-    image: require('../../assets/intro/phone.png'),
+      'Motivat.io allows you to set fully personalizable notifications to your choice',
+    Image: () => <Image source={require('../../assets/intro/phone.png')} />,
   },
   {
     title: (
@@ -51,10 +66,13 @@ const slides: SlideData[] = [
       </Title>
     ),
     description: 'Share your accomplishments with the world and view theirs',
-    image: require('../../assets/intro/phone.png'),
+    Image: () => (
+      <Image
+        source={require('../../assets/intro/chat.png')}
+        style={[styles.image, styles.chat]}
+      />
+    ),
   },
 ];
-
-console.log(require('../../assets/intro/phone.png'));
 
 export default slides;
