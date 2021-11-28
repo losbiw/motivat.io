@@ -1,7 +1,8 @@
-import React, {FC} from 'react';
-import {Pressable, StyleSheet, View} from 'react-native';
+import React, {FC, useEffect, useRef} from 'react';
+import {Animated, Pressable, StyleSheet, View} from 'react-native';
 import {useDispatch, useSelector} from 'react-redux';
 import colors from '../../constants/colors';
+import usePrevious from '../../hooks/usePrevious';
 import {RootState} from '../../store';
 import Gradient from '../general/gradient';
 import SText from '../general/text';
@@ -12,17 +13,22 @@ import slides from './slides-data';
 export type SlideIndex = number;
 type SetSlideIndex = (index: number) => void;
 
+const initialOpacity = 0.5;
+
 const renderBalls = (
   count: number,
   focusedIndex: number,
+  prevIndex: undefined | number,
+  fadeInOpacity: Animated.Value,
   setIndex: SetSlideIndex,
 ) =>
   new Array(count).fill(null).map((_el, index) => (
-    <View
+    <Animated.View
       style={[
         circles.container,
         index === count - 1 ? {} : styles.margin,
-        index === focusedIndex ? styles.opacity : {},
+        index === focusedIndex ? {opacity: fadeInOpacity} : {},
+        // index === prevIndex ? {opacity: fadeOutOpacity} : {},
       ]}
       key={`cirlce-${index}`}>
       <Gradient style={styles.borderRadius}>
@@ -30,22 +36,36 @@ const renderBalls = (
           {index === focusedIndex && <View style={circles.innerCircle} />}
         </Pressable>
       </Gradient>
-    </View>
+    </Animated.View>
   ));
 
 const Nav: FC = () => {
   const activeIndex = useSelector((store: RootState) => store.intro.slideIndex);
+  const previousIndex = usePrevious(activeIndex);
+
+  const fadeInAnim = useRef(new Animated.Value(initialOpacity)).current;
+
   const dispatch = useDispatch();
 
-  if (activeIndex === slides.length - 1) {
-    return (
-      <WideButton
-        style={styles.wideButton}
-        onPress={() => dispatch(hideIntroduction())}
-        title="Get Started"
-      />
-    );
-  }
+  useEffect(() => {
+    fadeInAnim.setValue(initialOpacity);
+
+    Animated.timing(fadeInAnim, {
+      toValue: 1,
+      duration: 200,
+      useNativeDriver: true,
+    }).start();
+  }, [activeIndex, fadeInAnim]);
+
+  // if (activeIndex === slides.length - 1) {
+  //   return (
+  //     <WideButton
+  //       style={styles.wideButton}
+  //       onPress={() => dispatch(hideIntroduction())}
+  //       title="Get Started"
+  //     />
+  //   );
+  // }
 
   return (
     <View style={styles.nav}>
@@ -54,8 +74,12 @@ const Nav: FC = () => {
       </Pressable>
 
       <View style={styles.row}>
-        {renderBalls(3, activeIndex, (index: number) =>
-          dispatch(setSlideIndex(index)),
+        {renderBalls(
+          3,
+          activeIndex,
+          previousIndex,
+          fadeInAnim,
+          (index: number) => dispatch(setSlideIndex(index)),
         )}
       </View>
 
@@ -69,7 +93,7 @@ const Nav: FC = () => {
 const circles = StyleSheet.create({
   container: {
     overflow: 'hidden',
-    opacity: 0.5,
+    opacity: initialOpacity,
   },
   circle: {
     width: 20,
