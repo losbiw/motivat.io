@@ -7,7 +7,7 @@ interface State {
 }
 
 const initialState: State = {
-  isShown: false, // TODO: change the hardcoded value
+  isShown: true, // TODO: change the hardcoded value
   slideIndex: 0,
 };
 
