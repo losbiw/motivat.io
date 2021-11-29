@@ -2,9 +2,8 @@
 
 The app is created for people who struggle with finding their motivation to achieve certain goals and/or keep forgetting about practicing new skills.
 
-Main Screen             |  Introduction
-:-------------------------:|:-------------------------:
-![](screenshots/main-screen.png)  |  ![](screenshots/intro.png)
+| ![Main Screen](screenshots/main-screen.png)  |  ![Introduction](screenshots/intro.png)
+-----------------------------------------------|----------------------------------------
 
 ## Tech Stack
 Main technologies used in the project:
