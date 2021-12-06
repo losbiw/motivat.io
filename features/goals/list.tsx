@@ -9,8 +9,8 @@ const GoalsList: FC = () => {
 
   return (
     <ScrollView style={styles.list}>
-      {goals.map(goal => (
-        <Goal {...goal} key={goal.title} />
+      {goals.map((goal, index) => (
+        <Goal {...goal} key={`${goal.title}${index}`} />
       ))}
     </ScrollView>
   );
