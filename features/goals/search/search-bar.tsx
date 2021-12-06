@@ -1,10 +1,16 @@
 import React, {FC} from 'react';
-import {StyleSheet, View} from 'react-native';
+import {StyleSheet, TextInput, View} from 'react-native';
+import {useDispatch, useSelector} from 'react-redux';
 import colors from '../../../constants/colors';
+import {RootState} from '../../../store';
 import Icon from '../../general/icon';
-import SText from '../../general/text';
+import {resetFilter, setFilteredGoals} from '../goals-slice';
 
 const SearchBar: FC = () => {
+  const goalsList = useSelector((state: RootState) => state.goals.fullList);
+
+  const dispatch = useDispatch();
+
   return (
     <View style={styles.background}>
       <Icon
@@ -12,7 +18,25 @@ const SearchBar: FC = () => {
         color={colors.placeholder}
         source={require('../../../assets/icons/search/search.png')}
       />
-      <SText style={styles.placeholder}>Search goals</SText>
+      <TextInput
+        placeholder="Search goals"
+        placeholderTextColor={colors.placeholder}
+        style={styles.input}
+        onChangeText={input => {
+          if (input.length === 0) {
+            dispatch(resetFilter());
+          } else {
+            const filtered = goalsList
+              .map(({title, category}) => ({
+                title,
+                category,
+              }))
+              .filter(goal => new RegExp(input, 'gi').test(goal.title));
+
+            dispatch(setFilteredGoals(filtered));
+          }
+        }}
+      />
     </View>
   );
 };
@@ -28,10 +52,13 @@ const styles = StyleSheet.create({
     borderColor: colors.border,
     borderRadius: 17,
   },
-  placeholder: {
+  input: {
     fontSize: 16,
-    color: colors.placeholder,
+    fontFamily: 'Poppins-Regular',
+    color: colors.text,
+    padding: 0,
     marginLeft: 16,
+    flex: 1,
   },
   image: {
     width: 20,

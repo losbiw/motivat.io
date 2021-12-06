@@ -3,14 +3,20 @@ import {DisplayGoal, Goal} from '../../types/goal';
 
 interface State {
   fullList: Goal[];
-  titles: DisplayGoal[];
+  displayItems: DisplayGoal[];
 }
 
 const initialState: State = {
-  fullList: [],
-  titles: [
+  fullList: [
     {
-      title: 'Do something like',
+      title: 'Take care of yourself!',
+      category: 'selfCare',
+      days: [],
+    },
+  ],
+  displayItems: [
+    {
+      title: 'Take care of yourself!',
       category: 'selfCare',
     },
   ],
@@ -26,14 +32,23 @@ const goals = createSlice({
 
       // state.fullList.push(goal);
 
-      state.titles.push({
+      state.displayItems.push({
         title,
         category,
       });
     },
+    setFilteredGoals: (state: State, action: PayloadAction<DisplayGoal[]>) => {
+      state.displayItems = action.payload;
+    },
+    resetFilter: (state: State) => {
+      state.displayItems = state.fullList.map(({title, category}) => ({
+        title,
+        category,
+      }));
+    },
   },
 });
 
-export const {addGoal} = goals.actions;
+export const {addGoal, setFilteredGoals, resetFilter} = goals.actions;
 
 export default goals.reducer;

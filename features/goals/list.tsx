@@ -5,7 +5,7 @@ import {RootState} from '../../store';
 import Goal from './goal';
 
 const GoalsList: FC = () => {
-  const goals = useSelector((state: RootState) => state.goals.titles);
+  const goals = useSelector((state: RootState) => state.goals.displayItems);
 
   return (
     <ScrollView style={styles.list}>
