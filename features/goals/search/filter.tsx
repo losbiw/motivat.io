@@ -15,10 +15,12 @@ const Filter: FC = () => (
 
 const styles = StyleSheet.create({
   container: {
+    alignItems: 'center',
+    justifyContent: 'center',
     padding: 12,
     borderWidth: 1,
     borderColor: colors.border,
-    borderRadius: 15,
+    borderRadius: 17,
     marginLeft: 6,
   },
   icon: {
