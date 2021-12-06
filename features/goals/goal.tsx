@@ -29,6 +29,7 @@ const styles = StyleSheet.create({
     marginBottom: 15,
   },
   title: {
+    flex: 1,
     marginLeft: 21,
   },
 });
