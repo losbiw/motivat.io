@@ -22,8 +22,8 @@ const styles = StyleSheet.create({
     aspectRatio: 0.5,
   },
   chat: {
-    height: 160,
-    width: 310,
+    height: screenHeight * 0.19,
+    aspectRatio: 1.95,
   },
 });
 
