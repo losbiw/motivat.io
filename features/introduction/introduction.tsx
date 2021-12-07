@@ -77,8 +77,8 @@ const styles = StyleSheet.create({
   introduction: {
     height: '100%',
     justifyContent: 'space-between',
-    paddingTop: 54,
-    paddingBottom: 80,
+    paddingTop: 50,
+    paddingBottom: 70,
   },
   container: {
     flexDirection: 'row',

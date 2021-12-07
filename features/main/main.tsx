@@ -20,7 +20,6 @@ const styles = StyleSheet.create({
   main: {
     paddingHorizontal: 33,
     paddingTop: 46,
-    paddingBottom: 22,
     flex: 1,
   },
   subtitle: {

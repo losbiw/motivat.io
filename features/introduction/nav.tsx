@@ -143,10 +143,9 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
-    marginVertical: 17,
   },
   animated: {
-    alignItems: 'flex-end',
+    alignItems: 'center',
     position: 'relative',
     flexDirection: 'row',
     zIndex: 3,
