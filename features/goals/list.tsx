@@ -1,5 +1,5 @@
 import React, {FC} from 'react';
-import {FlatList, StyleSheet} from 'react-native';
+import {FlatList, StyleSheet, View} from 'react-native';
 import {useSelector} from 'react-redux';
 import {RootState} from '../../store';
 import Goal from './goal';
@@ -8,18 +8,23 @@ const GoalsList: FC = () => {
   const goals = useSelector((state: RootState) => state.goals.displayItems);
 
   return (
-    <FlatList
-      data={goals}
-      style={styles.list}
-      renderItem={({item: goal}) => <Goal {...goal} />}
-      keyExtractor={(goal, index) => `${goal.title}${index}`}
-      showsVerticalScrollIndicator={false}
-    />
+    <View style={styles.container}>
+      <FlatList
+        data={goals}
+        renderItem={({item: goal}) => <Goal {...goal} />}
+        keyExtractor={(goal, index) => `${goal.title}${index}`}
+        showsVerticalScrollIndicator={false}
+      />
+    </View>
   );
 };
 
 const styles = StyleSheet.create({
-  list: {
+  container: {
+    flex: 1,
+    borderTopLeftRadius: 10,
+    borderTopRightRadius: 10,
+    overflow: 'hidden',
     marginTop: 15,
   },
 });
