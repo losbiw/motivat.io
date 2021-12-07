@@ -8,16 +8,40 @@ interface State {
 
 const initialState: State = {
   fullList: [
-    {
-      title: 'Take care of yourself!',
-      category: 'selfCare',
-      days: [],
-    },
+    // {
+    //   title: 'Take care of yourself!',
+    //   category: 'art',
+    //   days: [],
+    // },
   ],
   displayItems: [
     {
-      title: 'Take care of yourself!',
-      category: 'selfCare',
+      title: 'Get accepted to an art school',
+      category: 'art',
+    },
+    {
+      title: 'Watch star wars',
+      category: 'movies',
+    },
+    {
+      title: 'Read the great gatsby',
+      category: 'books',
+    },
+    {
+      title: 'Earn a million bucks or something idk',
+      category: 'business',
+    },
+    {
+      title: 'Learn norwegian',
+      category: 'languages',
+    },
+    {
+      title: 'Achieve 150 WPM',
+      category: 'computers',
+    },
+    {
+      title: 'Take care of myself!',
+      category: 'health',
     },
   ],
 };

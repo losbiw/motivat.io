@@ -1,51 +1,48 @@
+import {ImageSourcePropType} from 'react-native';
 import {Gradient} from '../types/gradient';
 
 export interface Category {
   gradient: Gradient;
+  icon?: ImageSourcePropType;
 }
 
 export type CategoryNames =
-  | 'science'
   | 'movies'
   | 'languages'
   | 'computers'
-  | 'music'
-  | 'selfCare'
+  | 'health'
   | 'business'
-  | 'math'
   | 'books'
   | 'art';
 
 const categories: Record<CategoryNames, Category> = {
-  science: {
-    gradient: ['ED4589', 'FF6A57'],
-  },
   business: {
-    gradient: ['DA22FF', '9733EE'],
-  },
-  math: {
-    gradient: ['DA22FF', '9733EE'],
+    gradient: ['38ef7d', '17D0C1'],
+    icon: require('../assets/icons/categories/business.png'),
   },
   books: {
-    gradient: ['DA22FF', '9733EE'],
+    gradient: ['FFAD71', 'FF794F'],
+    icon: require('../assets/icons/categories/books.png'),
   },
   movies: {
-    gradient: ['DA22FF', '9733EE'],
+    gradient: ['#EB52FF', '#9B38FF'],
+    icon: require('../assets/icons/categories/movies.png'),
   },
   languages: {
-    gradient: ['4E54C8', '8F94FB'],
+    gradient: ['9FEEFF', '65CAFF'],
+    icon: require('../assets/icons/categories/languages.png'),
   },
   computers: {
-    gradient: ['AAFFA9', '43ECB9'],
-  },
-  music: {
-    gradient: ['A9F5FF', '5AC4FF'],
+    gradient: ['#8f94fb', '#4e54c8'],
+    icon: require('../assets/icons/categories/computers.png'),
   },
   art: {
-    gradient: ['F34665', 'EC6B43'],
+    gradient: ['#FFD14E', 'FEB150'],
+    icon: require('../assets/icons/categories/art.png'),
   },
-  selfCare: {
-    gradient: ['C955FF', 'FF83F3'],
+  health: {
+    gradient: ['FF6A57', 'ED4589'],
+    icon: require('../assets/icons/categories/health.png'),
   },
 };
 
