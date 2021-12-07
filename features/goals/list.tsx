@@ -13,6 +13,7 @@ const GoalsList: FC = () => {
       style={styles.list}
       renderItem={({item: goal}) => <Goal {...goal} />}
       keyExtractor={(goal, index) => `${goal.title}${index}`}
+      showsVerticalScrollIndicator={false}
     />
   );
 };
