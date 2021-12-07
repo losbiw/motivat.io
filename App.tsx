@@ -3,7 +3,10 @@ import {StatusBar, StyleSheet, View} from 'react-native';
 import {Provider, useDispatch, useSelector} from 'react-redux';
 import colors from './constants/colors';
 import StorageKeys from './constants/storageKeys';
-import {showIntroduction} from './features/introduction/intro-slice';
+import {
+  hideIntroduction,
+  showIntroduction,
+} from './features/introduction/intro-slice';
 import Introduction from './features/introduction/introduction';
 import Main from './features/main/main';
 import storage from './helpers/storage';
@@ -25,6 +28,8 @@ const App = () => {
 
       if (!isIntroHidden) {
         dispatch(showIntroduction());
+      } else {
+        dispatch(hideIntroduction());
       }
     };
 
