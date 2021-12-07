@@ -3,7 +3,7 @@ import {StatusBar, StyleSheet, View} from 'react-native';
 import {Provider, useDispatch, useSelector} from 'react-redux';
 import colors from './constants/colors';
 import StorageKeys from './constants/storageKeys';
-import {hideIntroduction} from './features/introduction/intro-slice';
+import {showIntroduction} from './features/introduction/intro-slice';
 import Introduction from './features/introduction/introduction';
 import Main from './features/main/main';
 import storage from './helpers/storage';
@@ -23,8 +23,8 @@ const App = () => {
     const fetchStorageData = async () => {
       const isIntroHidden = await storage.readData(StorageKeys.IS_INTRO_HIDDEN);
 
-      if (isIntroHidden) {
-        dispatch(hideIntroduction());
+      if (!isIntroHidden) {
+        dispatch(showIntroduction());
       }
     };
 

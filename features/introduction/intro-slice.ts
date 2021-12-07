@@ -15,6 +15,9 @@ const introSlice = createSlice({
   name: 'introduction',
   initialState,
   reducers: {
+    showIntroduction: (state: State) => {
+      state.isShown = true;
+    },
     hideIntroduction: (state: State) => {
       state.isShown = false;
     },
@@ -34,7 +37,12 @@ const introSlice = createSlice({
   },
 });
 
-export const {hideIntroduction, showNextSlide, showPrevSlide, setSlideIndex} =
-  introSlice.actions;
+export const {
+  showIntroduction,
+  hideIntroduction,
+  showNextSlide,
+  showPrevSlide,
+  setSlideIndex,
+} = introSlice.actions;
 
 export default introSlice.reducer;
