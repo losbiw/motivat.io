@@ -1,9 +1,12 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import {StatusBar, StyleSheet, View} from 'react-native';
-import {Provider, useSelector} from 'react-redux';
+import {Provider, useDispatch, useSelector} from 'react-redux';
 import colors from './constants/colors';
+import StorageKeys from './constants/storageKeys';
+import {hideIntroduction} from './features/introduction/intro-slice';
 import Introduction from './features/introduction/introduction';
 import Main from './features/main/main';
+import storage from './helpers/storage';
 import {RootState, store} from './store';
 
 const ReduxWrapper = () => (
@@ -14,6 +17,23 @@ const ReduxWrapper = () => (
 
 const App = () => {
   const isIntroShown = useSelector((state: RootState) => state.intro.isShown);
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    const fetchStorageData = async () => {
+      const isIntroHidden = await storage.readData(StorageKeys.IS_INTRO_HIDDEN);
+
+      if (isIntroHidden) {
+        dispatch(hideIntroduction());
+      }
+    };
+
+    fetchStorageData();
+  }, [dispatch]);
+
+  if (isIntroShown === undefined) {
+    return <View style={styles.global} />;
+  }
 
   return (
     <View style={styles.global}>

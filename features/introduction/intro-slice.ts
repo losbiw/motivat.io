@@ -2,12 +2,12 @@ import {createSlice, PayloadAction} from '@reduxjs/toolkit';
 import slides from './slides-data';
 
 interface State {
-  isShown: boolean;
+  isShown: boolean | undefined;
   slideIndex: number;
 }
 
 const initialState: State = {
-  isShown: false, // TODO: change the hardcoded value
+  isShown: undefined,
   slideIndex: 0,
 };
 

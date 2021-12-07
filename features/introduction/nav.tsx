@@ -1,9 +1,11 @@
-import React, {FC, useEffect, useRef} from 'react';
+import React, {FC, useCallback, useEffect, useRef} from 'react';
 import {Animated, Easing, Pressable, StyleSheet, View} from 'react-native';
 import {useDispatch, useSelector} from 'react-redux';
 import {animations} from '../../constants/animations';
 import colors from '../../constants/colors';
 import {screenWidth} from '../../constants/dimensions';
+import StorageKeys from '../../constants/storageKeys';
+import storage from '../../helpers/storage';
 import usePrevious from '../../hooks/usePrevious';
 import {RootState} from '../../store';
 import Gradient from '../general/gradient';
@@ -47,6 +49,11 @@ const Nav: FC = () => {
   const offsetAnim = useRef(new Animated.Value(0)).current;
 
   const dispatch = useDispatch();
+
+  const closeSlides = useCallback(async () => {
+    dispatch(hideIntroduction());
+    await storage.writeData(StorageKeys.IS_INTRO_HIDDEN, true);
+  }, [dispatch]);
 
   useEffect(() => {
     if (activeIndex !== slides.length - 1) {
@@ -110,7 +117,7 @@ const Nav: FC = () => {
       {NavElement}
       <WideButton
         style={styles.wideButton}
-        onPress={() => dispatch(hideIntroduction())}
+        onPress={closeSlides}
         title="Get Started"
       />
     </Animated.View>
