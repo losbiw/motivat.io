@@ -1,14 +1,11 @@
 import React, {FC} from 'react';
 import {StyleSheet, TextInput, View} from 'react-native';
-import {useDispatch, useSelector} from 'react-redux';
+import {useDispatch} from 'react-redux';
 import colors from '../../../constants/colors';
-import {RootState} from '../../../store';
 import Icon from '../../general/icon';
-import {resetFilter, setFilteredGoals} from '../goals-slice';
+import {filterGoals, resetFilter} from '../goals-slice';
 
 const SearchBar: FC = () => {
-  const goalsList = useSelector((state: RootState) => state.goals.fullList);
-
   const dispatch = useDispatch();
 
   return (
@@ -23,18 +20,7 @@ const SearchBar: FC = () => {
         placeholderTextColor={colors.placeholder}
         style={styles.input}
         onChangeText={input => {
-          if (input.length === 0) {
-            dispatch(resetFilter());
-          } else {
-            const filtered = goalsList
-              .map(({title, category}) => ({
-                title,
-                category,
-              }))
-              .filter(goal => new RegExp(input, 'gi').test(goal.title));
-
-            dispatch(setFilteredGoals(filtered));
-          }
+          dispatch(input.length === 0 ? resetFilter() : filterGoals(input));
         }}
       />
     </View>

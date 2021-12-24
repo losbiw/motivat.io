@@ -50,19 +50,27 @@ const goals = createSlice({
   name: 'goals',
   initialState,
   reducers: {
-    addGoal: (state: State, action: PayloadAction<Goal>) => {
-      const goal = action.payload;
+    addGoal: (state: State, {payload: goal}: PayloadAction<Goal>) => {
       const {title, category} = goal;
 
-      // state.fullList.push(goal);
+      state.fullList.unshift(goal);
 
-      state.displayItems.push({
+      state.displayItems.unshift({
         title,
         category,
       });
     },
-    setFilteredGoals: (state: State, action: PayloadAction<DisplayGoal[]>) => {
-      state.displayItems = action.payload;
+    filterGoals: (state: State, {payload: query}: PayloadAction<string>) => {
+      state.displayItems = state.fullList
+        .filter(goal => new RegExp(query, 'gi').test(goal.title))
+        .map(goal => {
+          const {category, title} = goal;
+
+          return {
+            category,
+            title,
+          };
+        });
     },
     resetFilter: (state: State) => {
       state.displayItems = state.fullList.map(({title, category}) => ({
@@ -73,6 +81,6 @@ const goals = createSlice({
   },
 });
 
-export const {addGoal, setFilteredGoals, resetFilter} = goals.actions;
+export const {addGoal, filterGoals, resetFilter} = goals.actions;
 
 export default goals.reducer;
