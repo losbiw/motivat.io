@@ -31,8 +31,8 @@ const introSlice = createSlice({
         state.slideIndex -= 1;
       }
     },
-    setSlideIndex: (state: State, action: PayloadAction<number>) => {
-      state.slideIndex = action.payload;
+    setSlideIndex: (state: State, {payload: index}: PayloadAction<number>) => {
+      state.slideIndex = index;
     },
   },
 });
