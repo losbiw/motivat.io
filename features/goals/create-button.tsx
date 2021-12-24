@@ -1,15 +1,16 @@
 import React, {FC} from 'react';
 import {Pressable, StyleSheet} from 'react-native';
-// import {useDispatch} from 'react-redux';
+import {useDispatch} from 'react-redux';
 import colors from '../../constants/colors';
 import Gradient from '../general/gradient';
 import Icon from '../general/icon';
+import {openSettings} from '../settings/settings-slice';
 
 const CreateButton: FC = () => {
-  // const dispatch = useDispatch();
+  const dispatch = useDispatch();
 
   return (
-    <Pressable style={styles.button}>
+    <Pressable style={styles.button} onPress={() => dispatch(openSettings())}>
       <Gradient style={styles.gradient}>
         <Icon
           style={styles.icon}
