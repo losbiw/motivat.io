@@ -23,8 +23,8 @@ const styles = StyleSheet.create({
   gradient: {
     alignItems: 'center',
     justifyContent: 'center',
-    paddingVertical: 14,
-    borderRadius: 19,
+    paddingVertical: 11,
+    borderRadius: 21,
   },
   title: {
     color: colors.background,
