@@ -2,6 +2,7 @@ import {CategoryNames} from '../constants/categories';
 import {Day} from './day';
 
 export interface Goal {
+  id: number;
   title: string;
   notification?: string;
   category: CategoryNames;

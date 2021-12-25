@@ -12,18 +12,22 @@ const TextInputBox: FC<Props> = ({defaultValue, placeholder, onChangeText}) => (
     placeholder={placeholder}
     defaultValue={defaultValue}
     onChangeText={onChangeText}
+    multiline={true}
   />
 );
 
 const styles = StyleSheet.create({
   input: {
     alignItems: 'center',
-    padding: 8,
     backgroundColor: colors.secondary,
-    borderRadius: 17,
-    borderColor: colors.border,
+    paddingVertical: 14,
+    paddingHorizontal: 28,
+    marginBottom: 32,
+    fontSize: 18,
+    fontFamily: 'Poppins-Regular',
+    borderRadius: 20,
     borderWidth: 1,
-    marginBottom: 15,
+    borderColor: colors.border,
   },
 });
 

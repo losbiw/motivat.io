@@ -10,13 +10,13 @@ import Settings from '../settings/settings';
 import Title from './title';
 
 const Main = () => {
-  const isSettingsOpen = useSelector(
-    (state: RootState) => state.settings.isOpen,
+  const {isOpen: isSettingsOpen, id} = useSelector(
+    (state: RootState) => state.settings,
   );
 
   return (
     <View style={styles.main}>
-      {isSettingsOpen && <Settings />}
+      {isSettingsOpen && <Settings id={id} />}
 
       <Title />
       <Search />
