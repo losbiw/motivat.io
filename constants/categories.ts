@@ -4,7 +4,7 @@ import {Gradient} from '../types/gradient';
 export interface Category {
   title: CategoryNames;
   gradient: Gradient;
-  icon?: ImageSourcePropType;
+  icon: ImageSourcePropType;
 }
 
 export type CategoryNames =
