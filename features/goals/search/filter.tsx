@@ -1,12 +1,12 @@
 import React, {FC} from 'react';
 import {StyleSheet, View} from 'react-native';
-import colors from '../../../constants/colors';
+import colors from '@constants/colors';
 import Icon from '../../general/icon';
 
 const Filter: FC = () => (
   <View style={styles.container}>
     <Icon
-      source={require('../../../assets/icons/search/filter.png')}
+      source={require('@assets/icons/search/filter.png')}
       color={colors.text}
       style={styles.icon}
     />

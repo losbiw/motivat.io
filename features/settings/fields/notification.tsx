@@ -1,6 +1,6 @@
 import React, {FC} from 'react';
 import {View} from 'react-native';
-import {Goal} from '../../../types/goal';
+import {Goal} from '@type/goal';
 import FieldTitle from '../components/field-title';
 import TextInputBox from '../components/text-input';
 

@@ -1,6 +1,6 @@
 import React, {FC} from 'react';
 import {StyleSheet, Text, TextProps} from 'react-native';
-import colors from '../../constants/colors';
+import colors from '@constants/colors';
 
 const SText: FC<TextProps> = props => (
   <Text {...props} style={[styles.text, props.style]}>

@@ -2,8 +2,8 @@ import React, {FC} from 'react';
 import LinearGradient, {
   LinearGradientProps,
 } from 'react-native-linear-gradient';
-import colorPalette from '../../constants/colors';
-import {hextToRGBString} from '../../helpers/hexToRGB';
+import colorPalette from '@constants/colors';
+import {hextToRGBString} from '@helpers/hexToRGB';
 
 type Props = Partial<LinearGradientProps>;
 

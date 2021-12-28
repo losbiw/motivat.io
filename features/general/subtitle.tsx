@@ -1,6 +1,6 @@
 import React, {FC} from 'react';
 import {StyleSheet, TextProps} from 'react-native';
-import colors from '../../constants/colors';
+import colors from '@constants/colors';
 import SText from './text';
 
 interface Props extends TextProps {

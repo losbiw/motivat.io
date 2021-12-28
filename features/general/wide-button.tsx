@@ -1,6 +1,6 @@
 import React, {FC} from 'react';
 import {Pressable, PressableProps, StyleSheet} from 'react-native';
-import colors from '../../constants/colors';
+import colors from '@constants/colors';
 import Gradient from './gradient';
 import SText from './text';
 

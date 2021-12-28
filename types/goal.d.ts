@@ -1,4 +1,4 @@
-import {CategoryNames} from '../constants/categories';
+import {CategoryNames} from '@constants/categories';
 import {Day} from './day';
 
 export interface Goal {

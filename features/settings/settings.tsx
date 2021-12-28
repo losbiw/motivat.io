@@ -1,9 +1,9 @@
 import React, {FC} from 'react';
 import {ScrollView, StyleSheet, View} from 'react-native';
 import {useDispatch, useSelector} from 'react-redux';
-import colors from '../../constants/colors';
-import {RootState} from '../../store';
-import {Goal} from '../../types/goal';
+import colors from '@constants/colors';
+import {RootState} from 'store';
+import {Goal} from '@type/goal';
 import WideButton from '../general/wide-button';
 import CategoryDropdown from './fields/category';
 import Notification from './fields/notification';

@@ -1,5 +1,5 @@
 import {createSlice, PayloadAction} from '@reduxjs/toolkit';
-import {DisplayGoal, Goal} from '../../types/goal';
+import {DisplayGoal, Goal} from '@type/goal';
 
 interface State {
   fullList: Goal[];

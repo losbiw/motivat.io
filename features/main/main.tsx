@@ -1,7 +1,7 @@
 import React from 'react';
 import {StyleSheet, View} from 'react-native';
 import {useSelector} from 'react-redux';
-import {RootState} from '../../store';
+import {RootState} from 'store';
 import Subtitle from '../general/subtitle';
 import CreateButton from '../goals/create-button';
 import GoalsList from '../goals/list';

@@ -1,7 +1,7 @@
 import React, {FC} from 'react';
 import {StyleSheet, Text} from 'react-native';
-import {Category as Props} from '../../constants/categories';
-import colors from '../../constants/colors';
+import {Category as Props} from '@constants/categories';
+import colors from '@constants/colors';
 import Gradient from '../general/gradient';
 import Icon from '../general/icon';
 

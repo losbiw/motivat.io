@@ -1,6 +1,6 @@
 import React, {FC} from 'react';
 import {StyleSheet} from 'react-native';
-import colors from '../../../constants/colors';
+import colors from '@constants/colors';
 import SText from '../../general/text';
 
 const FieldTitle: FC = ({children}) => (

@@ -1,9 +1,9 @@
 import React, {FC, useEffect, useRef, useState} from 'react';
 import {Animated, Easing, StyleSheet, View} from 'react-native';
 import {useDispatch, useSelector} from 'react-redux';
-import {animations} from '../../constants/animations';
-import {screenWidth} from '../../constants/dimensions';
-import {RootState} from '../../store';
+import {animations} from '@constants/animations';
+import {screenWidth} from '@constants/dimensions';
+import {RootState} from 'store';
 import {showNextSlide, showPrevSlide} from './intro-slice';
 import Nav from './nav';
 import Slide from './slide';

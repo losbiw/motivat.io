@@ -1,6 +1,6 @@
 import React, {FC} from 'react';
 import {StyleSheet, TextInput, TextInputProps} from 'react-native';
-import colors from '../../../constants/colors';
+import colors from '@constants/colors';
 
 type Props = Required<Pick<TextInputProps, 'placeholder' | 'onChangeText'>> &
   TextInputProps;

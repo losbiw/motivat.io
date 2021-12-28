@@ -1,7 +1,7 @@
 import React, {FC} from 'react';
 import {StyleSheet, TextInput, View} from 'react-native';
 import {useDispatch} from 'react-redux';
-import colors from '../../../constants/colors';
+import colors from '@constants/colors';
 import Icon from '../../general/icon';
 import {filterGoals, resetFilter} from '../goals-slice';
 
@@ -13,7 +13,7 @@ const SearchBar: FC = () => {
       <Icon
         style={styles.image}
         color={colors.placeholder}
-        source={require('../../../assets/icons/search/search.png')}
+        source={require('@assets/icons/search/search.png')}
       />
       <TextInput
         placeholder="Search goals"

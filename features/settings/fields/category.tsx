@@ -1,8 +1,8 @@
 import React, {FC} from 'react';
 import {View, StyleSheet} from 'react-native';
-import categories, {CategoryNames} from '../../../constants/categories';
-import colors from '../../../constants/colors';
-import capitalizeFirstLetter from '../../../helpers/capitalize';
+import categories, {CategoryNames} from '@constants/categories';
+import colors from '@constants/colors';
+import capitalizeFirstLetter from '@helpers/capitalize';
 import Dropdown from '../../general/dropdown';
 import Icon from '../../general/icon';
 import SText from '../../general/text';
@@ -29,7 +29,7 @@ const CategoryDropdown: FC = () => (
 
           <Icon
             style={styles.arrow}
-            source={require('../../../assets/icons/general/arrow.png')}
+            source={require('@assets/icons/general/arrow.png')}
             color={colors.text}
           />
         </View>

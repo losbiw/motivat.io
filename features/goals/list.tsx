@@ -1,7 +1,7 @@
 import React, {FC} from 'react';
 import {FlatList, StyleSheet, View} from 'react-native';
 import {useSelector} from 'react-redux';
-import {RootState} from '../../store';
+import {RootState} from 'store';
 import Goal from './goal';
 
 const GoalsList: FC = () => {

@@ -1,7 +1,7 @@
 import React, {FC} from 'react';
 import {StyleSheet, View} from 'react-native';
-import categories, {CategoryNames} from '../../constants/categories';
-import colors from '../../constants/colors';
+import categories, {CategoryNames} from '@constants/categories';
+import colors from '@constants/colors';
 import Subtitle from '../general/subtitle';
 import Category from './category';
 
